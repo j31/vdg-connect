@@ -15,12 +15,12 @@ const userSchema = new Schema({
   stateCounty:       String,
   postalCode:  String,
   country:     String,
-  
+
   location: { type: { type: String }, coordinates: [Number] },
 
-  playsTreble: String,
-  playsAlto:   String,
-  playsBass:   String,
+  playsTreble: Boolean,
+  playsAlto:   Boolean,
+  playsBass:   Boolean,
 
   playerLevel:       String,
   

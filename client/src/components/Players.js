@@ -22,8 +22,16 @@ class Players extends Component {
   render() {                
     return (
       <div className="Players">
-        <h2>List of Players</h2>
-        {this.state.players.map((p, i) => <li key={i}>{p.email}</li>)}
+        <h2>Players in Berlin</h2>
+        {this.state.players.map((p, i) => 
+          <div key={i} className="ProfileCard">
+            <p>{p.fullName}</p>
+            <p><img src={p.playerPictureUrl} className="ProfilePhoto" alt="player"/></p>
+            <p>{p.playsTreble && "Treble"}</p>
+            <p>{p.playsAlto && "Alto"}</p>
+            <p>{p.playsBass && "Bass"}</p>
+            <p>{p.playerLevel}</p>
+          </div>)}
 
       </div>
     );

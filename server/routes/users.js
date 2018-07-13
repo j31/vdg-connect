@@ -17,6 +17,13 @@ const uploadCloudinary = require('../configs/cloudinary');
 //     })
 // });
 
+// Route to get all users
+router.get('/', (req, res, next) => {
+  User.find()
+    .then(users => {
+      res.json(users)
+    })
+});
 
 
 // Route to get users near Berlin
@@ -28,7 +35,7 @@ router.get('/', (req, res, next) => {
         { $near:
            {
              $geometry: { type: "Point",  coordinates: [ 13.39, 52.53 ] },
-             $maxDistance: 1
+             $maxDistance: 10000
            }
         }
     }
@@ -37,7 +44,6 @@ router.get('/', (req, res, next) => {
   res.json(users)
 })
 });
-
 
 
 router.get('/profile', passport.authenticate("jwt", config.jwtSession), (req, res, next) => {

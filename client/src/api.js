@@ -20,6 +20,13 @@ export default {
       .catch(errHandler);
   },
 
+  getConsorts() {
+    return service
+      .get('/consorts')
+      .then(res => res.data)
+      .catch(errHandler);
+  },
+
 
   getCountries() {
     return service

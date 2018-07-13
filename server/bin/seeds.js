@@ -4,6 +4,7 @@ require ('../configs/database');
 
 const mongoose = require('mongoose');
 const User     = require('../models/User');
+const Consort     = require('../models/Consort');
 
 // Connect to DB
 // mongoose
@@ -71,9 +72,20 @@ User.deleteMany()
     console.log("Successfully seeded MongoDB with this many users ", userDocuments)
     mongoose.connection.close()
   })
+  .then( () => {
+    const consort1 = new Consort({ consortName: "Don't Fret!"});
+    const consort2 = new Consort({ consortName: "Perlman's Pluckers"});
+  
+   Consort.deleteMany()
+    .then(() => Consort.create([consort1, consort2]))
+    .then(userDocuments => {
+      console.log("Successfully seeded MongoDB with this many  ", userDocuments)
+      mongoose.connection.close()
+    })
+    .catch(err => {throw(err)})
+  })
   .catch(err => {throw(err)})
 
-  // User.register(lizzy, password1, err => {
-  //   if (err) return next(err);
-  //   res.json({ success: true });
-  // });
+
+
+  
