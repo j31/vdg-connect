@@ -42,13 +42,33 @@ export default {
       .catch(errHandler);
   },
 
-  postProfile(playerInfo) {
+  postProfile(file, playerInfo) {
+
+    const formData = new FormData();
+   
+    formData.append("picture", file)
+    
+    formData.append("fullName", playerInfo.fullName)
+
+    formData.append("address1", playerInfo.address1)
+    formData.append("address2", playerInfo.address2)
+    formData.append("city", playerInfo.city)
+    formData.append("stateCounty", playerInfo.stateCounty)
+    formData.append("postalCode", playerInfo.postalCode)
+    formData.append("country", playerInfo.country)
+    formData.append("location", playerInfo.location)
+   
     return service
-      .post('/users/profile', playerInfo)
+      .post('/users/profile', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      })
       .then(res => res.data)
       .catch(errHandler);
   },
   
+
   signup(userInfo) {
     return service
       .post('/signup', userInfo)
@@ -91,17 +111,4 @@ export default {
     return localStorage.getItem('user') != null
   },
 
-
-  addPicture(file) {
-    const formData = new FormData();
-    formData.append("picture", file)
-    return service
-      .post('/users/first-user/pictures', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      })
-      .then(res => res.data)
-      .catch(errHandler);
-  },
 };

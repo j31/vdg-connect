@@ -12,9 +12,11 @@ const userSchema = new Schema({
   address1:    String,
   address2:    String,
   city:        String,
-  State:       String,
-  PostalCode:  String,
-  Country:     String,
+  stateCounty:       String,
+  postalCode:  String,
+  country:     String,
+  
+  location: { type: { type: String }, coordinates: [Number] },
 
   playsTreble: String,
   playsAlto:   String,
@@ -24,9 +26,11 @@ const userSchema = new Schema({
   
   playerNotes:  String,
   
-  pictureUrl: String,
+  playerPictureUrl: String,
 
 });
+
+userSchema.index({ location: "2dsphere" });
 
 // Add "email" (instead of "username"), "hash" and "salt" field to store the email (as username), the hashed password and the salt value
 // Documentation: https://github.com/saintedlama/passport-local-mongoose

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import api from '../api';
 
+
 class Players extends Component {
   constructor(props) {
     super(props)
@@ -11,7 +12,7 @@ class Players extends Component {
   componentDidMount() {
     api.getPlayers()
       .then(players => {
-        console.log("players ", players)
+        
         this.setState({
           players: players
         })
@@ -23,9 +24,12 @@ class Players extends Component {
       <div className="Players">
         <h2>List of Players</h2>
         {this.state.players.map((p, i) => <li key={i}>{p.email}</li>)}
+
       </div>
     );
   }
 }
 
 export default Players;
+
+

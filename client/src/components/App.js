@@ -4,6 +4,7 @@ import Home from './Home';
 import Players from './Players';
 
 import Profile from './Profile';
+
 import Login from './Login';
 import Signup from './Signup';
 import api from '../api';
@@ -41,10 +42,9 @@ class App extends Component {
             {!api.isLoggedIn() && <Link to="/signup">Sign Up</Link> }
             {!api.isLoggedIn() && <Link to="/login">Login</Link> }
 
-          
-
             {api.isLoggedIn() && <Link to="/" onClick={(e) => this.handleLogoutClick(e)}>Logout</Link> }
             {api.isLoggedIn() && <Link to="/profile">Profile</Link>}
+      
           </div>
         </header>
 
@@ -56,6 +56,7 @@ class App extends Component {
           <Route path="/signup" component={Signup} />
           <Route path="/login" component={Login} />
           <Route path="/profile" component={Profile} />
+
           <Route render={() => <h2>404</h2>} />
         </Switch>        
       </div>
