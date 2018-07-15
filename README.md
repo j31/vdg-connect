@@ -72,11 +72,10 @@ So now you can go to
 <!-- TODO: give instructions for Cloudinary -->
 <!-- TODO: give instructions for route guards -->
 
-### `server/routes/countries.js`
+### `server/routes/events.js`
 
-- `router.get('/')`: Route to get all countries
-- `router.get('/static-sample')`: Route to get a static sample of countries
-- `router.post('/')`: Route to add a country
+- `router.get('/')`: Route to get all events
+- `router.post('/')`: Route to add an event
 
 
 

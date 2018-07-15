@@ -28,16 +28,16 @@ export default {
   },
 
 
-  getCountries() {
+  getEvents() {
     return service
-      .get('/countries')
+      .get('/events')
       .then(res => res.data)
       .catch(errHandler);
   },
 
-  postCountries(data) {
+  postEvents(data) {
     return service
-      .post('/countries', data)
+      .post('/events', data)
       .then(res => res.data)
       .catch(errHandler);
   },
