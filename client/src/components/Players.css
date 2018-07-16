@@ -1,0 +1,15 @@
+
+.ProfilePhoto {
+  height: 50px;
+}
+
+.ProfileCard {
+  /* border: 1px solid black; 
+  width: 100px; */
+  margin: 20px;
+  float: left;
+}
+
+.Players {
+  float: left;
+}

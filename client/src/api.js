@@ -54,9 +54,7 @@ export default {
     const formData = new FormData();
    
     formData.append("picture", file)
-    
     formData.append("fullName", playerInfo.fullName)
-
     formData.append("address1", playerInfo.address1)
     formData.append("address2", playerInfo.address2)
     formData.append("city", playerInfo.city)

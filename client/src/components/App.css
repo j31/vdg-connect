@@ -34,22 +34,3 @@
   text-align: center;
 }
 
-.ProfilePhoto {
-  height: 50px;
-}
-
-.ProfileCard {
-  /* border: 1px solid black; 
-  width: 100px; */
-  margin: 20px;
-  float: left;
-}
-
-.Players {
-  float: left;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}

@@ -1,17 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { withStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import IconButton from '@material-ui/core/IconButton';
-
-import AccountCircle from '@material-ui/icons/AccountCircle';
-
-import MenuItem from '@material-ui/core/MenuItem';
-import Menu from '@material-ui/core/Menu';
 import { NavLink, Link, Switch, Route } from 'react-router-dom';
+import api from '../api';
 
+// Custom Components
 import Home from './Home';
 import Players from './Players';
 import Consorts from './Consorts';
@@ -21,12 +12,22 @@ import AddEvent from './AddEvent';
 import Login from './Login';
 import Signup from './Signup';
 
-import api from '../api';
+// Material UI Components
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
+import AppBar from '@material-ui/core/AppBar';
+import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography';
+import IconButton from '@material-ui/core/IconButton';
+import AccountCircle from '@material-ui/icons/AccountCircle';
+import MenuItem from '@material-ui/core/MenuItem';
+import Menu from '@material-ui/core/Menu';
+
+// Material UI style 
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
-
-
 import { createMuiTheme } from '@material-ui/core/styles';
 import amber from '@material-ui/core/colors/amber';
+
 
 const theme = createMuiTheme({
   palette: {
@@ -36,7 +37,6 @@ const theme = createMuiTheme({
     },
   },
 });
-
 
 const styles = {
   root: {
@@ -50,7 +50,6 @@ const styles = {
     marginRight: 20,
   },
 };
-
 
 class MenuAppBar extends React.Component {
   state = {
@@ -133,7 +132,6 @@ class MenuAppBar extends React.Component {
                   onClose={this.handleClose}
                 >
                 
-
                   {api.isLoggedIn() && <MenuItem onClick={this.handleClose}><Link to="/profile">Edit Profile</Link></MenuItem>}
                   {api.isLoggedIn() && <MenuItem onClick={this.handleClose}><Link to="/" onClick={(e) => this.handleLogoutClick(e)}>Log Out</Link></MenuItem>}
                 </Menu>

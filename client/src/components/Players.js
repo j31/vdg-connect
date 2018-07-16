@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import api from '../api';
-import SimpleMediaCard from './SimpleMediaCard'
 
+// Custom Components 
+import './Players.css';
+
+// Material UI Components 
+import SimpleMediaCard from './SimpleMediaCard'
 
 class Players extends Component {
   constructor(props) {
