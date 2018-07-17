@@ -1,15 +1,16 @@
 
 
 
-.headline1 {
+.headline2 {
   font-size: 1.6em;
   color: #4a4a4a;
-  margin-top: 40px;
+  margin-top: 10px;
 }
 
-.headline2 {
-  font-size: 4em;
-  color: #4a4a4a;
+.headline1 {
+  font-size: 5em;
+  color: black;
+  height: 100vh;
 }
 
 

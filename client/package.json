@@ -12,6 +12,7 @@
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-geocode": "0.0.9",
+    "react-rotating-text": "^1.2.1",
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.1"
   },

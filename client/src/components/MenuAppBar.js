@@ -1,6 +1,7 @@
 import React from 'react';
 import { NavLink, Link, Switch, Route } from 'react-router-dom';
 import api from '../api';
+import './MenuAppBar.css';
 
 // Custom Components
 import Home from './Home';
@@ -32,6 +33,9 @@ import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 import { createMuiTheme } from '@material-ui/core/styles';
 import amber from '@material-ui/core/colors/amber';
 
+var ReactRotatingText = require('react-rotating-text');
+
+
 
 const theme = createMuiTheme({
   palette: {
@@ -55,9 +59,15 @@ const styles = {
   },
 };
 
+
+
+
+
+
 class MenuAppBar extends React.Component {
   state = {
     anchorEl: null,
+    splashClasses: "splashBanner"
   };
 
   handleChange = (event, checked) => {
@@ -72,6 +82,10 @@ class MenuAppBar extends React.Component {
     this.setState({ anchorEl: null });
   };
 
+  handleShrink = () => {
+    this.setState({ splashClasses: "hidden"})
+  };
+
   handleLogoutClick(e) {
     api.logout()
   };
@@ -81,6 +95,7 @@ class MenuAppBar extends React.Component {
     const { classes } = this.props;
     const { anchorEl } = this.state;
     const open = Boolean(anchorEl);
+
 
     return (
       <MuiThemeProvider theme={theme}>
@@ -103,8 +118,6 @@ class MenuAppBar extends React.Component {
             {api.isLoggedIn() && <NavLink to="/consorts">Consorts</NavLink>}&nbsp;&nbsp;
             {api.isLoggedIn() && <NavLink to="/events">Events</NavLink>}&nbsp;&nbsp;
         
-           
-         
           </div>
             </Typography>
             
@@ -139,8 +152,25 @@ class MenuAppBar extends React.Component {
                   {api.isLoggedIn() && <MenuItem onClick={this.handleClose}><Link to="/" onClick={(e) => this.handleLogoutClick(e)}>Log Out</Link></MenuItem>}
                 </Menu>
               </div>
-            
           </Toolbar>
+
+            
+            <div className={this.state.splashClasses}>
+            <br/><br/>
+            <ReactRotatingText 
+              items={['Welcome to', 'Authentic', 'Quirky', 'Beautiful', 'Resurgant',
+              'Friendly', 'Soul-touching', 'Viola da']} 
+              pause={3500}
+              cursor={false}
+              />
+              &nbsp;Gamba.<br/>
+
+              <Button variant="outlined" color="default" onClick={this.handleShrink}> CONTINUE </Button>
+              </div>
+         
+
+
+
         </AppBar>
 
         <Switch>

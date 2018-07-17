@@ -16,15 +16,11 @@ class Home extends Component {
   render() {                
     return (
       <div className="Home">
-        <div className="headline">
-        <div className="headline1">A COMMUNITY OF</div><br />
-        <div className="headline2">VIOLA DA GAMBA</div><br />
-        </div>
-        <br/><br/>
-        
-        
        
-          
+     
+      <br/><br/>
+        
+    
     
 
       <Grid container spacing={24}>
