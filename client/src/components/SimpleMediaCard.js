@@ -24,9 +24,6 @@ const styles = {
 function SimpleMediaCard(props) {
   const { classes } = props;
 
-  console.log(props.desc)
-
-
   return (
     <div>
       <Card className={classes.card}>

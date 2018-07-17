@@ -7,6 +7,7 @@ import Home from './Home';
 import Dashboard from './Dashboard';
 import Players from './Players';
 import Consorts from './Consorts';
+import ConsortDetail from './ConsortDetail';
 import Profile from './Profile';
 import Events from './Events';
 import AddEvent from './AddEvent';
@@ -148,7 +149,10 @@ class MenuAppBar extends React.Component {
           {!api.isLoggedIn() && <Route path="/" exact component={Home} />}
           {api.isLoggedIn() && <Route path="/" exact component={Dashboard} />}
           <Route path="/players" component={Players} />
+          
+          <Route path="/consorts/:id" component={ConsortDetail} />
           <Route path="/consorts" component={Consorts} />
+          
           <Route path="/events" component={Events} />
           <Route path="/add-event" component={AddEvent} />
      

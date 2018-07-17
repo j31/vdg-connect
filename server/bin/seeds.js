@@ -5,6 +5,7 @@ require ('../configs/database');
 const mongoose = require('mongoose');
 const User     = require('../models/User');
 const Consort     = require('../models/Consort');
+const Event     = require('../models/Event');
 
 // var faker = require('faker');
 
@@ -275,7 +276,40 @@ User.deleteMany()
     .then(() => Consort.create([consort2, consort1]))
     .then(userDocuments => {
       console.log("Successfully seeded MongoDB with consorts.")
-      mongoose.connection.close()
+      
+      
+     
+      var myDate = new Date("2018-07-25T18:00:00Z");
+
+
+      const event1 = new Event({
+        eventName: "Händel Selections",
+      
+        date: myDate, 
+      
+        description: "Includes 'Cantata spagnuola' HWV 140 and many other favorites.",
+      
+        _organizer: user4,
+        
+        _consorts: [consort1],
+      
+        _players: [],
+      
+        venue: "Bode Museum, Main Atrium",
+        venueAddress: "Am Kupfergraben, 10117 Berlin",
+        location: { type: "Point", coordinates: [13.3942567,52.5218937] },
+      
+        pictureUrl: ""
+      })
+      
+      Event.deleteMany()
+      .then(() => Event.create(event1))
+      .then(userDocuments => {
+        console.log("Successfully seeded MongoDB with events.")
+        mongoose.connection.close()
+      })
+      .catch(err => {throw(err)})
+
     })
     .catch(err => {throw(err)})
   })

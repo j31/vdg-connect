@@ -23,11 +23,13 @@ class Events extends Component {
   render() {                
     return (
       <div className="Events">
-        <br />
-      <Link to="/add-event">Add Event</Link>&nbsp;&nbsp;
-        <h2>List of events</h2>
+        <br/>
+      
+        <h2>Events</h2>
         {this.state.events.map((c, i) => <li key={i}>{c.eventName}</li>)}
         <Route path="/add-event" component={AddEvent} />
+
+        <br/><br/><Link to="/add-event">Add Event</Link>&nbsp;&nbsp;
       </div>
      
     );

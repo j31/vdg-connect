@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import api from '../api';
-import { Link } from 'react-router-dom';
 
-import Button from '@material-ui/core/Button';
 
 
 // Custom Components 
@@ -23,7 +21,7 @@ class Players extends Component {
   componentDidMount() {
     api.getLocalPlayers()
       .then(players => {
-        console.log ("local players ", players)
+        // console.log ("local players ", players)
         this.setState({
           playersAll: players,
           playersShow: players
@@ -49,6 +47,7 @@ class Players extends Component {
         .toUpperCase()
         .includes(searchString)
       )
+
       this.setState({
         playersShow: filterList
       });

@@ -1,13 +1,10 @@
 import React, { Component } from 'react';
 import api from '../api';
 import './Players.css';
-import { Link } from 'react-router-dom';
 
 // Custom Components 
 
-
 // Material UI Components 
-import Button from '@material-ui/core/Button';
 import SimpleMediaCard from './SimpleMediaCard'
 
 
@@ -63,7 +60,7 @@ class Players extends Component {
   render() {                
     return (
       <div className="Players">
-        <h2>All Players</h2>
+        <h2>Connect with Fellow Players</h2>
 
 
         <form>

@@ -34,6 +34,13 @@ export default {
       .catch(errHandler);
   },
 
+  getConsort(id) {
+    return service
+      .get('/consorts/' + id)
+      .then(res => res.data)
+      .catch(errHandler);
+  },
+
 
   getEvents() {
     return service

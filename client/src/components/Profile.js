@@ -7,7 +7,7 @@ import Button from '@material-ui/core/Button';
 
 
 // For Google geocoding 
-import Geocode from "react-geocode";
+// import Geocode from "react-geocode";
 
 
 
@@ -159,10 +159,7 @@ class Profile extends Component {
 
 
           <table className="center-table">
-
-
-
-
+            <tbody>
            <tr>
               <td className="input-label" >Name</td>
               <td>
@@ -174,17 +171,13 @@ class Profile extends Component {
               </td>
               </tr>
           
-          
-          <br/><br/>
-
-
     <tr>
           <td className="input-label" >Address 1</td> 
           <td><input type="text" 
           className="input-text" 
           value={this.state.address1} 
           onChange={(e) => {this.handleInputChange("address1", e)}} 
-          /> </td><br/><br/>
+          /> </td>
           </tr>
     <tr>
           <td className="input-label" >Address 2</td> 
@@ -192,7 +185,7 @@ class Profile extends Component {
           className="input-text" 
           value={this.state.address2} 
           onChange={(e) => {this.handleInputChange("address2", e)}}/> </td>
-          <br/><br/>
+          
           </tr>
     <tr>
           <td className="input-label" >City</td> 
@@ -200,7 +193,7 @@ class Profile extends Component {
           className="input-text" 
           value={this.state.city} 
           onChange={(e) => {this.handleInputChange("city", e)}} 
-          /></td><br/><br/>
+          /></td>
           </tr>
     <tr>
           <td className="input-label" >State or County</td> 
@@ -208,7 +201,7 @@ class Profile extends Component {
           className="input-text" 
           value={this.state.stateCounty} 
           onChange={(e) => {this.handleInputChange("stateCounty", e)}} 
-          /></td><br/><br/>
+          /></td>
           </tr>
     <tr>
           <td className="input-label" >Postal Code</td> 
@@ -216,7 +209,7 @@ class Profile extends Component {
           className="input-text" 
           value={this.state.postalCode} 
           onChange={(e) => {this.handleInputChange("postalCode", e)}} 
-          /></td><br/><br/>
+          /></td>
           </tr>
     <tr>
           <td className="input-label" >Country</td> 
@@ -224,17 +217,19 @@ class Profile extends Component {
           className="input-text" 
           value={this.state.country} 
           onChange={(e) => {this.handleInputChange("country", e)}} 
-          /></td><br/><br/>
+          /></td>
           </tr>
 
           
             <tr>
             <td className="input-label" >Level</td>       
-            <td><input type="text" 
-          className="input-text" 
-          value={this.state.playerLevel}  
-          onChange={(e) => {this.handleInputChange("playerLevel", e)}} 
-          /></td><br/><br/>
+            <td>
+              <input type="text" 
+                className="input-text" 
+                value={this.state.playerLevel}  
+                onChange={(e) => {this.handleInputChange("playerLevel", e)}} 
+                />
+            </td>
 
             </tr>
           
@@ -244,7 +239,7 @@ class Profile extends Component {
           className="input-text" 
           value={this.state.playerNotes} 
           onChange={(e) => {this.handleInputChange("playerNotes", e)}} 
-          /></td><br/><br/>
+          /></td>
           </tr>
 
                           <tr>
@@ -253,7 +248,7 @@ class Profile extends Component {
           <td><input type="file" 
           className="input-text input-label" 
           onChange={(e)=>this.handleChange(e)} 
-          /> </td><br/><br/>
+          /> </td>
     </tr>
 
 
@@ -266,7 +261,7 @@ class Profile extends Component {
 
           </tr>
 
-
+        </tbody>
         </table>
         </form>
 

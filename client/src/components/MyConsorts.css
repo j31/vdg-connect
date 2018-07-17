@@ -1,0 +1,21 @@
+
+.MyConsorts {
+  text-align: center;
+}
+
+.consort-table {
+  margin-left:auto; 
+  margin-right:auto;
+
+}
+
+.avatars {
+  float: left;
+  margin: 5px;
+}
+
+.MyConsorts td {
+  width: 250px;
+  vertical-align: middle;
+  background-color: #eaeaea; 
+}

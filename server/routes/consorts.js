@@ -19,6 +19,15 @@ router.get('/', (req, res, next) => {
 });
 
 
+// Route to get consort by id
+router.get('/:id', (req, res, next) => {
+  
+  Consort.findById(req.params.id)
+    .populate('_members')
+    .then(consort => {
+      res.json(consort)
+    })
+});
 
 
 
