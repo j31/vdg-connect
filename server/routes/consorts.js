@@ -12,6 +12,7 @@ const Consort = require('../models/consort');
 // Route to get all consorts
 router.get('/', (req, res, next) => {
   Consort.find()
+    .populate('_members')
     .then(consorts => {
       res.json(consorts)
     })

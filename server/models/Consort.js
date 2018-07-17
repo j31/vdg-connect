@@ -5,9 +5,24 @@ const { Schema } = mongoose;
 const consortSchema = new Schema({
   consortName:    String,
 
-  _organizer:{type: mongoose.Schema.Types.ObjectId, ref:'User'},
+  _members: [{type: mongoose.Schema.Types.ObjectId, ref:'User'}],
   
-  _members: [{type: mongoose.Schema.Types.ObjectId, ref:'User'}]  
+  
+  venue: String,
+  address1:    String,
+  address2:    String,
+  city:        String,
+  stateCounty:       String,
+  postalCode:  String,
+  country:     String,
+
+  location: { type: { type: String }, coordinates: [Number] },
+
+  isProfessional: Boolean,
+
+  notes:  String,
+  
+  pictureUrl: String,
   
 });
 

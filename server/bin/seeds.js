@@ -55,13 +55,13 @@ const user3 = new User({
   playsBass: true,
   playerLevel: "Advanced",
   playerNotes: "Board member VdGSA",
-  address1: "",
+  address1: "Dickensweg 17",
   address2: "",
-  city: "Chicago",
+  city: "Berlin",
   stateCounty: "",
-  postalCode: "60611",
-  country: "USA",
-  location: { type: 'Point', coordinates: [-87.62, 49.89] },
+  postalCode: "14055",
+  country: "Germany",
+  location: { type: 'Point', coordinates: [13.2716, 52.4794315] },
   pictureUrl: 'http://res.cloudinary.com/cldpix/image/upload/v1531732681/my-images/kkubogku5f40asxh1dsx.jpg'
 });
 
@@ -182,13 +182,13 @@ const user10 = new User({
   playsBass: true,
   playerLevel: "Advanced",
   playerNotes: "",
-  address1: "3728 Diane Street",
+  address1: " Ackerstraße 76",
   address2: "",
-  city: "Oxnard",
-  stateCounty: "CA",
-  postalCode: "93032",
-  country: "USA",
-  location: { type: 'Point', coordinates: [-119.241619, 34.295645] },
+  city: "Berlin",
+  stateCounty: "Berlin",
+  postalCode: "10115",
+  country: "Germany",
+  location: { type: 'Point', coordinates: [13.2716, 52.4794728] },
   pictureUrl: 'http://res.cloudinary.com/cldpix/image/upload/v1531809205/my-images/vwcbqj2o4dqu9ahg5oky.jpg'
 });
 
@@ -237,11 +237,42 @@ User.deleteMany()
     console.log("Successfully seeded MongoDB users.")
   })
   .then( () => {
-    const consort1 = new Consort({ consortName: "Don't Fret!"});
-    const consort2 = new Consort({ consortName: "Perlman's Pluckers"});
+  
+    const consort1 = new Consort({ 
+      consortName: "Phorms Quartet",
+      _members: [user4._id, user5._id, user9._id, user10._id],
+      venue: "Phorms Auola",
+      address1:    "Ackerstraße 76",
+      address2:    "",
+      city:        "Berlin",
+      stateCounty:   "",
+      postalCode:  "13355",
+      country:     "Germany",
+      location: { type: "Point", coordinates: [13.2716, 52.4794728] },
+      isProfessional: false,
+      notes:  "Guests are welcome to attend rehearsals.",
+      pictureUrl: ""
+    });
+
+    const consort2 = new Consort({ 
+      consortName: "Ken's Trio",
+      _members: [user2._id, user3._id, user4._id],
+      venue: "Ken's Place",
+      address1:    "Dickensweg 17",
+      address2:    "",
+      city:        "Berlin",
+      stateCounty:   "",
+      postalCode:  "14055",
+      country:     "Germany",
+      location: { type: "Point", coordinates: [13.2716, 52.4794315] },
+      isProfessional: false,
+      notes:  "We're always open to guests playing in... get in touch!",
+      pictureUrl: ""
+    });
+    
   
    Consort.deleteMany()
-    .then(() => Consort.create([consort1, consort2]))
+    .then(() => Consort.create([consort2, consort1]))
     .then(userDocuments => {
       console.log("Successfully seeded MongoDB with consorts.")
       mongoose.connection.close()
