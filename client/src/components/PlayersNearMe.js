@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import api from '../api';
-import './Players.css';
 import { Link } from 'react-router-dom';
 
-// Custom Components 
+import Button from '@material-ui/core/Button';
 
+
+// Custom Components 
+import './PlayersNearMe.css';
 
 // Material UI Components 
-import Button from '@material-ui/core/Button';
 import SimpleMediaCard from './SimpleMediaCard'
-
 
 class Players extends Component {
   constructor(props) {
@@ -21,9 +21,9 @@ class Players extends Component {
     }
   }
   componentDidMount() {
-    api.getPlayers()
+    api.getLocalPlayers()
       .then(players => {
-        
+        console.log ("local players ", players)
         this.setState({
           playersAll: players,
           playersShow: players
@@ -62,18 +62,13 @@ class Players extends Component {
 
   render() {                
     return (
-      <div className="Players">
-        <h2>All Players</h2>
+      <div className="PlayersNearMe">
 
 
+        {/* <h2>Players Near Me</h2>
         <form>
           <input placeholder=" search by name" className="input-text"  type="text" value={this.props.searchText} onChange={(e) => this.newSearch(e)} />
-        
-         {/* <Button variant="outlined" color="primary" onClick={(e) => this.newSearch(e)}>
-          Search
-          </Button><br/><br/> */}
-
-        </form>
+        </form> */}
 
         
         <div className="center-players">

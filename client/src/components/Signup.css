@@ -1,0 +1,19 @@
+
+.Signup {
+  text-align: center;
+}
+
+.form-message {
+  font-size: 1.1em;
+  text-align: center; 
+  line-height: 1.5;
+  color: #4a4a4a;
+}
+
+.input-text {
+  width: 350px;
+  height: 34px;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+

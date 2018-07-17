@@ -1,5 +1,10 @@
 import React, { Component } from 'react';
 import api from '../api';
+import './Signup.css';
+
+import Button from '@material-ui/core/Button';
+
+
 
 class Signup extends Component {
   constructor(props) {
@@ -27,7 +32,7 @@ class Signup extends Component {
     api.signup(data)
       .then(result => {
         console.log('SUCCESS!')
-        this.props.history.push("/login") // Redirect to the login page
+        this.props.history.push("/welcome") // Redirect to the login page
       })
       .catch(err => {
         console.log('ERROR')
@@ -37,12 +42,20 @@ class Signup extends Component {
   render() {   
     return (
       <div className="Signup">
-        <h2>Signup</h2>
+        <br/>
+        <h1>Join the VdG Community!</h1>
+        <p className="form-message">Your account will always be free.  We respect your privacy.</p>
         <form>
-          Email: <input type="text" value={this.state.email} onChange={(e) => {this.handleInputChange("email", e)}} /> <br/>
-          Name: <input type="text" value={this.state.name} onChange={(e) => {this.handleInputChange("name", e)}} /> <br/>
-          Password: <input type="password" value={this.state.password} onChange={(e) => {this.handleInputChange("password", e)}}  /> <br/>
-          <button onClick={(e) => this.handleClick(e)}>Signup</button>
+
+
+          <input placeholder=" email" className="input-text" type="text" value={this.state.email} onChange={(e) => {this.handleInputChange("email", e)}} /> <br/>
+          <input placeholder=" name" className="input-text" type="text" value={this.state.name} onChange={(e) => {this.handleInputChange("name", e)}} /> <br/>
+          <input placeholder=" password" className="input-text" type="password" value={this.state.password} onChange={(e) => {this.handleInputChange("password", e)}}  /> <br/>
+          {/* <button onClick={(e) => this.handleClick(e)}>Signup</button> */}
+          <Button variant="contained" color="primary" onClick={(e) => this.handleClick(e)}>
+          Sign up
+          </Button><br/><br/>
+
         </form>
       </div>
     );

@@ -9,13 +9,7 @@ const uploadCloudinary = require('../configs/cloudinary');
 
 
 
-// Route to get all users
-// router.get('/', (req, res, next) => {
-//   User.find()
-//     .then(users => {
-//       res.json(users)
-//     })
-// });
+
 
 // Route to get all users
 router.get('/', (req, res, next) => {
@@ -27,7 +21,7 @@ router.get('/', (req, res, next) => {
 
 
 // Route to get users near Berlin
-router.get('/', (req, res, next) => {
+router.get('/local', (req, res, next) => {
   
   User.find(
     {
@@ -35,7 +29,7 @@ router.get('/', (req, res, next) => {
         { $near:
            {
              $geometry: { type: "Point",  coordinates: [ 13.39, 52.53 ] },
-             $maxDistance: 10000
+             $maxDistance: 100000
            }
         }
     }
@@ -70,7 +64,7 @@ router.post('/profile', passport.authenticate("jwt", config.jwtSession), uploadC
     country:  req.body.country,
     // location:  req.body.location,
 
-    playerPictureUrl: req.file.url
+    pictureUrl: req.file.url
   };      
 
   console.log('playerInfo in routes ', playerInfo)

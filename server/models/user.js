@@ -26,7 +26,7 @@ const userSchema = new Schema({
   
   playerNotes:  String,
   
-  playerPictureUrl: String,
+  pictureUrl: String,
 
 });
 

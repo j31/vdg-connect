@@ -6,18 +6,66 @@ const mongoose = require('mongoose');
 const User     = require('../models/User');
 const Consort     = require('../models/Consort');
 
-// Connect to DB
-// mongoose
-//   .connection.openUri(process.env.MONGODB_URI)
-//   .then(() => {
-//     console.log('seeds.js: connected to Mongo!')
-//   }).catch(err => {
-//     console.error('seeds.js: problems connecting to mongo', err)
-//   });
+// var faker = require('faker');
+
+const user1 = new User({
+  email: "jeremy@gmail.com",
+  fullName: "Jeremy Allen",
+  playsTreble: false,
+  playsAlto: false,
+  playsBass: true,
+  playerLevel: "Intermediate",
+  playerNotes: "",
+  address1: "",
+  address2: "",
+  city: "Oklahoma City",
+  stateCounty: "OK",
+  postalCode: "73129",
+  country: "USA",
+  location: { type: 'Point', coordinates: [-97.477518, 35.469371] },
+
+  pictureUrl: 'http://res.cloudinary.com/cldpix/image/upload/v1531809096/my-images/fsonzoiwjkz6lvu5p7bx.jpg'
+});
 
 
-// Create admin/admin user
-const lizzy = new User({
+const user2 = new User({
+  email: "eric@gmail.com",
+  fullName: "Eric Miller",
+  playsTreble: true,
+  playsAlto: true,
+  playsBass: true,
+  playerLevel: "Advanced",
+  playerNotes: "",
+  address1: "",
+  address2: "",
+  city: "Berlin",
+  stateCounty: "",
+  postalCode: "10115",
+  country: "Germany",
+  location: { type: 'Point', coordinates: [13.39, 52.55] },
+  pictureUrl: 'http://res.cloudinary.com/cldpix/image/upload/v1531810425/my-images/teekof4jaeijsxryzimu.png'
+});
+
+
+const user3 = new User({
+  email: "ken@gmail.com",
+  fullName: "Ken Perlow",
+  playsTreble: true,
+  playsAlto: true,
+  playsBass: true,
+  playerLevel: "Advanced",
+  playerNotes: "Board member VdGSA",
+  address1: "",
+  address2: "",
+  city: "Chicago",
+  stateCounty: "",
+  postalCode: "60611",
+  country: "USA",
+  location: { type: 'Point', coordinates: [-87.62, 49.89] },
+  pictureUrl: 'http://res.cloudinary.com/cldpix/image/upload/v1531732681/my-images/kkubogku5f40asxh1dsx.jpg'
+});
+
+const user4 = new User({
   email: "elizabeth@gmail.com",
   fullName: "Elizabeth Fish",
   playsTreble: true,
@@ -32,45 +80,161 @@ const lizzy = new User({
   postalCode: "10115",
   country: "Germany",
   location: { type: 'Point', coordinates: [13.39, 52.53] },
+  pictureUrl: 'http://res.cloudinary.com/cldpix/image/upload/v1531645684/my-images/zmk8uqv86syfgdz0glmw.jpg'
 });
 
-const password1 = "lizzy"
+const user5 = new User({
+  email: "hille@gmail.com",
+  fullName: "Hille Perle",
+  playsTreble: true,
+  playsAlto: false,
+  playsBass: false,
+  playerLevel: "Professional",
+  playerNotes: "",
+  address1: "",
+  address2: "",
+  city: "Berlin",
+  stateCounty: "Berlin",
+  postalCode: "10115",
+  country: "Germany",
+  location: { type: 'Point', coordinates: [13.40, 52.60] },
+  pictureUrl: 'http://res.cloudinary.com/cldpix/image/upload/v1531809849/my-images/oyppnap7gxsmeqh8nlaa.jpg'
+});
 
-const john = new User({
-  email: "john@gmail.com",
-  fullName: "John Fish",
+const user6 = new User({
+  email: "michell@gmail.com",
+  fullName: "Michelle Wang",
+  playsTreble: true,
+  playsAlto: true,
+  playsBass: true,
+  playerLevel: "Advanced",
+  playerNotes: "",
+  address1: "3843 Duck Creek Road",
+  address2: "",
+  city: "Brisbane",
+  stateCounty: "CA",
+  postalCode: "94005",
+  country: "USA",
+  location: { type: 'Point', coordinates: [-122.485721, 
+    37.742477] },
+  pictureUrl: 'http://res.cloudinary.com/cldpix/image/upload/v1531809070/my-images/ny8o4bend8atny4cnbn2.jpg'
+});
+
+const user7 = new User({
+  email: "alta@gmail.com",
+  fullName: "Alta Kelton",
+  playsTreble: true,
+  playsAlto: false,
+  playsBass: true,
+  playerLevel: "Intermediate",
+  playerNotes: "",
+  address1: "4244 Leo Street",
+  address2: "",
+  city: "Denver",
+  stateCounty: "CO",
+  postalCode: "80202",
+  country: "USA",
+  location: { type: 'Point', coordinates: [-104.986202, 39.718694] },
+  pictureUrl: 'http://res.cloudinary.com/cldpix/image/upload/v1531810086/my-images/bernly1bstrz8yi5kkhl.jpg'
+});
+
+const user8 = new User({
+  email: "justina@gmail.com",
+  fullName: "Justina Cruz",
+  playsTreble: false,
+  playsAlto: false,
+  playsBass: true,
+  playerLevel: "Advanced",
+  playerNotes: "Board member VdGSA",
+  address1: "4536 Johnstown Road",
+  address2: "",
+  city: "Elk Grove Village",
+  stateCounty: "IL",
+  postalCode: "60007",
+  country: "USA",
+  location: { type: 'Point', coordinates: [-87.911909, 42.055929] },
+  pictureUrl: 'http://res.cloudinary.com/cldpix/image/upload/v1531810309/my-images/zks1isfmkmbf1ye3sgqd.jpg'
+});
+
+const user9 = new User({
+  email: "johnm@gmail.com",
+  fullName: "John Mathews",
   playsTreble: false,
   playsAlto: false,
   playsBass: true,
   playerLevel: "Beginner",
-  playerNotes: "Not too shabby",
-  address1: "Bernauer Str. 31",
+  playerNotes: "",
+  address1: "2963 Kovar Road",
   address2: "",
-  city: "Berlin",
-  stateCounty: "",
-  postalCode: "10115",
-  country: "Germany",
-  location: { type: 'Point', coordinates: [13.38, 52.52] },
+  city: "Auburn",
+  stateCounty: "MA",
+  postalCode: "01501",
+  country: "USA",
+  location: { type: 'Point', coordinates: [-71.880014, 42.178238] },
+  pictureUrl: 'http://res.cloudinary.com/cldpix/image/upload/v1531810178/my-images/fcrieb4dwgy6fgw4qibl.jpg'
 });
 
-const password2 = "john"
+const user10 = new User({
+  email: "johanna@gmail.com",
+  fullName: "Johnanna Rose",
+  playsTreble: true,
+  playsAlto: true,
+  playsBass: true,
+  playerLevel: "Advanced",
+  playerNotes: "",
+  address1: "3728 Diane Street",
+  address2: "",
+  city: "Oxnard",
+  stateCounty: "CA",
+  postalCode: "93032",
+  country: "USA",
+  location: { type: 'Point', coordinates: [-119.241619, 34.295645] },
+  pictureUrl: 'http://res.cloudinary.com/cldpix/image/upload/v1531809205/my-images/vwcbqj2o4dqu9ahg5oky.jpg'
+});
 
-// User.register(john, password2, err => {
-//   if (err) return next(err);
-//   res.json({ success: true });
-// });
 
 
-// const newUsers = [john, lizzy]
+// function getRandomUser() {
+//   var randomCard = faker.helpers.createCard(); // random contact card containing many properties
+//     // console.log(randomCard)
+  
+//   const user = new User({
+//     email: randomCard.email,
+//     fullName: randomCard.name,
+//     playsTreble: true,
+//     playsAlto: true,
+//     playsBass: true,
+//     playerLevel: "Advanced",
+//     playerNotes: "Board member VdGSA",
+//     address1: randomCard.address.streetB,
+//     address2: randomCard.address.streetC,
+//     city: randomCard.address.city,
+//     stateCounty: randomCard.address.state,
+//     postalCode: randomCard.address.zipcode,
+//     country: randomCard.address.country,
+//     location: { type: 'Point', coordinates: [randomCard.address.geo.lng, randomCard.address.geo.lat] },
+//     pictureUrl: 'http://res.cloudinary.com/cldpix/image/upload/v1531732681/my-images/kkubogku5f40asxh1dsx.jpg'
+//   });
+
+//   console.log ("random user ", user)
+//   return user
+// }
 
 
 // Delete all and save admin user
 User.deleteMany()
-  .then(() => User.register(lizzy, password1))
-  .then(() => User.register(john, password2))
+  .then(() => User.register(user1, 'p'))
+  .then(() => User.register(user2, 'p'))
+  .then(() => User.register(user3, 'p'))
+  .then(() => User.register(user4, 'p'))
+  .then(() => User.register(user5, 'p'))
+  .then(() => User.register(user6, 'p'))
+  .then(() => User.register(user7, 'p'))
+  .then(() => User.register(user8, 'p'))
+  .then(() => User.register(user9, 'p'))
+  .then(() => User.register(user10, 'p'))
   .then(userDocuments => {
-    console.log("Successfully seeded MongoDB with this many users ", userDocuments)
-    mongoose.connection.close()
+    console.log("Successfully seeded MongoDB users.")
   })
   .then( () => {
     const consort1 = new Consort({ consortName: "Don't Fret!"});
@@ -79,7 +243,7 @@ User.deleteMany()
    Consort.deleteMany()
     .then(() => Consort.create([consort1, consort2]))
     .then(userDocuments => {
-      console.log("Successfully seeded MongoDB with this many  ", userDocuments)
+      console.log("Successfully seeded MongoDB with consorts.")
       mongoose.connection.close()
     })
     .catch(err => {throw(err)})

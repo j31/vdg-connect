@@ -4,12 +4,14 @@ import api from '../api';
 
 // Custom Components
 import Home from './Home';
+import Dashboard from './Dashboard';
 import Players from './Players';
 import Consorts from './Consorts';
 import Profile from './Profile';
 import Events from './Events';
 import AddEvent from './AddEvent';
 import Login from './Login';
+import FirstLogin from './FirstLogin';
 import Signup from './Signup';
 
 // Material UI Components
@@ -22,6 +24,7 @@ import IconButton from '@material-ui/core/IconButton';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
+import Button from '@material-ui/core/Button';
 
 // Material UI style 
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
@@ -88,19 +91,17 @@ class MenuAppBar extends React.Component {
               <MenuIcon />
               
             </IconButton> */}
-            
+            <Link to="/">
             <img src="../img/gamba-big.png" alt="VdGSA Logo" className="App-logo"/>
-            GambaConnect
+            </Link>
+            VdG
             <Typography variant="title" color="inherit" className={classes.flex}>
             <div className="Nav">
-            <NavLink to="/">Home</NavLink>&nbsp;&nbsp;
-            <NavLink to="/players">Players</NavLink>&nbsp;&nbsp;
-            <NavLink to="/consorts">Consorts</NavLink>&nbsp;&nbsp;
-            <NavLink to="/events">Events</NavLink>&nbsp;&nbsp;
-            
-
-            {!api.isLoggedIn() && <Link to="/signup">Sign Up</Link> }
-            {!api.isLoggedIn() && <Link to="/login">Login</Link> }
+            {api.isLoggedIn() && <NavLink to="/">Home</NavLink>}&nbsp;&nbsp;
+            {api.isLoggedIn() && <NavLink to="/players">Players</NavLink>}&nbsp;&nbsp;
+            {api.isLoggedIn() && <NavLink to="/consorts">Consorts</NavLink>}&nbsp;&nbsp;
+            {api.isLoggedIn() && <NavLink to="/events">Events</NavLink>}&nbsp;&nbsp;
+        
            
          
           </div>
@@ -116,7 +117,8 @@ class MenuAppBar extends React.Component {
                   <AccountCircle />
                 </IconButton>}
 
-                {!api.isLoggedIn() && <Link to="/login">Login</Link> }
+          
+                {!api.isLoggedIn() && <Button variant="outlined" color="default" component={Link} to="/login">Login</Button> }
                 <Menu
                   id="menu-appbar"
                   anchorEl={anchorEl}
@@ -141,7 +143,10 @@ class MenuAppBar extends React.Component {
         </AppBar>
 
         <Switch>
-          <Route path="/" exact component={Home} />
+
+
+          {!api.isLoggedIn() && <Route path="/" exact component={Home} />}
+          {api.isLoggedIn() && <Route path="/" exact component={Dashboard} />}
           <Route path="/players" component={Players} />
           <Route path="/consorts" component={Consorts} />
           <Route path="/events" component={Events} />
@@ -149,6 +154,7 @@ class MenuAppBar extends React.Component {
      
           <Route path="/signup" component={Signup} />
           <Route path="/login" component={Login} />
+          <Route path="/welcome" component={FirstLogin} />
           <Route path="/profile" component={Profile} />
 
           <Route render={() => <h2>404</h2>} />

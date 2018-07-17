@@ -38,8 +38,8 @@ class Login extends Component {
     return (
       <div className="Login">
       <br/>
-        <h1>Log In</h1>
-        <p className="form-message">Please log in with your email and password.</p>
+        <h1>Welcome to VdG</h1>
+        <p className="form-message">We're thrilled to have you join us!<br/>Please log in to get started.</p>
         <form>
           <input placeholder=" email" className="input-text"  type="text" value={this.state.email} onChange={(e) => {this.handleInputChange("email", e)}} /> <br/>
           <input placeholder=" password" className="input-text" type="password" value={this.state.password} onChange={(e) => {this.handleInputChange("password", e)}}  /> <br/>
@@ -48,10 +48,6 @@ class Login extends Component {
          <Button variant="contained" color="primary" onClick={(e) => this.handleClick(e)}>
           Login
           </Button><br/><br/>
-
-
-          <p className="form-message">Not signed up?  &nbsp;&nbsp; Please <Link to="/signup">sign up</Link>.</p>
-
 
         </form>
       </div>

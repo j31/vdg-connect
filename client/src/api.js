@@ -20,6 +20,13 @@ export default {
       .catch(errHandler);
   },
 
+  getLocalPlayers() {
+    return service
+      .get('/users/local')
+      .then(res => res.data)
+      .catch(errHandler);
+  },
+
   getConsorts() {
     return service
       .get('/consorts')

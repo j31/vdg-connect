@@ -32,11 +32,11 @@ function SimpleMediaCard(props) {
       <Card className={classes.card}>
         <CardMedia
           className={classes.media}
-          image={props.playerPictureUrl}
+          image={props.pictureUrl}
           title="Player Photo"
         />
         <CardContent>
-          <Typography gutterBottom variant="headline" component="h2">
+          <Typography gutterBottom variant="title" component="h2">
             {props.fullName}
           </Typography>
           <Typography component="p">
@@ -45,10 +45,10 @@ function SimpleMediaCard(props) {
         </CardContent>
         <CardActions>
           <Button size="small" color="primary">
-            Share
+            CONTACT
           </Button>
           <Button size="small" color="primary">
-            Learn More
+            DETAILS
           </Button>
         </CardActions>
       </Card>

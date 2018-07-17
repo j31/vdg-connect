@@ -1,0 +1,44 @@
+
+
+
+.headline1 {
+  font-size: 1.6em;
+  color: #4a4a4a;
+  margin-top: 40px;
+}
+
+.headline2 {
+  font-size: 4em;
+  color: #4a4a4a;
+}
+
+
+.section-header {
+  font-size: 1.5em;
+  font-weight: 400; 
+  color: black;
+}
+
+.section-text {
+  font-size: 1.1em;
+  text-align: justify; 
+  line-height: 1.5;
+  color: #4a4a4a;
+  width:80%;
+  margin-left: 40px;
+}
+
+.npr-logo {
+  width: 80px;
+}
+
+/* #b28704
+#ffc107
+#ffcd38 */
+
+
+/* background-image: url('http://www.qcc.cuny.edu/Calendar/events/sonnambula.jpg');
+object-fit: cover;
+height: 500px;
+width: 100%;
+background-repeat: no-repeat; */
