@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Consort = require('../models/consort');
+const Consort = require('../models/Consort');
 // const passport = require('passport');
 // const config = require('../configs/index');
 
