@@ -30,7 +30,7 @@ class Login extends Component {
         this.props.history.push("/") // Redirect to the home page
       })
       .catch(err => {
-        console.log('ERROR')
+        console.log('ERROR: ', err)
       })
   }
 

@@ -6,11 +6,6 @@ const config = require('../configs/index');
 
 const uploadCloudinary = require('../configs/cloudinary');
 
-
-
-
-
-
 // Route to get all users
 router.get('/', (req, res, next) => {
   User.find()

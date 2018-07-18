@@ -90,6 +90,10 @@ class MenuAppBar extends React.Component {
     api.logout()
   };
 
+  componentDidMount() {
+    {api.isLoggedIn() && this.handleShrink()}
+  }
+
 
   render() {
     const { classes } = this.props;
@@ -110,14 +114,18 @@ class MenuAppBar extends React.Component {
             <Link to="/">
             <img src="../img/gamba-big.png" alt="VdGSA Logo" className="App-logo"/>
             </Link>
-            VdG
+            
             <Typography variant="title" color="inherit" className={classes.flex}>
             <div className="Nav">
-            {api.isLoggedIn() && <NavLink to="/">Home</NavLink>}&nbsp;&nbsp;
-            {api.isLoggedIn() && <NavLink to="/players">Players</NavLink>}&nbsp;&nbsp;
-            {api.isLoggedIn() && <NavLink to="/consorts">Consorts</NavLink>}&nbsp;&nbsp;
-            {api.isLoggedIn() && <NavLink to="/events">Events</NavLink>}&nbsp;&nbsp;
-        
+       
+          {api.isLoggedIn() && <Button size="large" color="default" component={Link} to="/">HOME</Button>}
+
+          {api.isLoggedIn() && <Button size="large" color="default" component={Link} to="/players">PLAYERS</Button>}
+
+          {api.isLoggedIn() && <Button size="large" color="default" component={Link} to="/consorts">CONSORTS</Button>}
+
+          {api.isLoggedIn() && <Button size="large" color="default" component={Link} to="/events">EVENTS</Button>}
+
           </div>
             </Typography>
             

@@ -33,7 +33,6 @@ class Events extends Component {
       <div className="Events">
         <br/>
       
-        <h2>Events</h2>
         {this.state.events.map((c, i) => 
           <div key={i}>
           <EventCard

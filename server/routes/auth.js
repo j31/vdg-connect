@@ -8,10 +8,10 @@ const config = require('../configs/index');
 
 router.post('/signup', (req, res, next) => {
   // extract the info we need from the body of the request
-  const { email, name, password } = req.body;
+  const { email, fullName, password } = req.body;
   const user = new User({
     email,
-    name
+    fullName
   });
 
   User.register(user, password, err => {
