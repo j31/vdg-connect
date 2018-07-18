@@ -140,7 +140,7 @@ class MenuAppBar extends React.Component {
                 </IconButton>}
 
           
-                {!api.isLoggedIn() && <Button variant="outlined" color="default" component={Link} to="/login">Login</Button> }
+                {!api.isLoggedIn() && <Button variant="outlined" color="default" onClick={this.handleShrink} component={Link} to="/login">Login</Button> }
                 <Menu
                   id="menu-appbar"
                   anchorEl={anchorEl}
