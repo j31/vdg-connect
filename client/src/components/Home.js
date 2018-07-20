@@ -20,9 +20,7 @@ class Home extends Component {
      
       <br/><br/>
         
-    
-
-
+  
   
 
         <Switch>

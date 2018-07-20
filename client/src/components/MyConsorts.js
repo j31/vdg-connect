@@ -21,7 +21,7 @@ class Consorts extends Component {
     
       let myConsorts = []
       myConsorts.push(consorts[0])
-      myConsorts.push(consorts[2])
+      myConsorts.push(consorts[1])
 
       this.setState({
         consorts: myConsorts
