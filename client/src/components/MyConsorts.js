@@ -55,7 +55,7 @@ class Consorts extends Component {
           </td>
           <td>  
 
-            {c.venue}
+            Meets at: {c.venue}
             {/* <Button size="small" color="primary" component={Link} to={'/consorts/' + c._id} >
               DETAILS
             </Button> */}

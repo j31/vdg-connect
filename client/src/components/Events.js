@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import api from '../api';
-import { Link, Route } from 'react-router-dom';
-import AddEvent from './AddEvent';
+// import { Link, Route } from 'react-router-dom';
+// import AddEvent from './AddEvent';
 import './Events.css';
 
 // Custom
@@ -75,9 +75,9 @@ class Events extends Component {
         </div>
 
 
-        <Route path="/add-event" component={AddEvent} />
+        {/* <Route path="/add-event" component={AddEvent} />
 
-        <br/><br/><Link to="/add-event">Add Event</Link>&nbsp;&nbsp;
+        <br/><br/><Link to="/add-event">Add Event</Link>&nbsp;&nbsp; */}
       </div>
     
     );

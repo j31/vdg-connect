@@ -43,14 +43,16 @@ class SimpleMediaCard extends React.Component {
     const favorite = {
       favEvent: id
     }
+
     api.postFavorites(favorite)
     .then(result => {
-
       this.props.history.push("/") // Redirect to the home page
     })
+
     .catch(err => {
       console.log('ERROR')
     })
+    window.location.reload();
   };
 
 

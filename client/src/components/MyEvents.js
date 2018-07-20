@@ -44,6 +44,7 @@ class MyEvents extends Component {
         {this.state.events.map((c, i) => 
           <div key={i}>
           <EventCard
+            _id={c._id}
             fullName={c.eventName}
             eventType={c.eventType}
             date={c.date}
