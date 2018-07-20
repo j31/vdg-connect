@@ -8,10 +8,15 @@ const config = require('../configs/index');
 
 router.post('/signup', (req, res, next) => {
   // extract the info we need from the body of the request
-  const { email, fullName, password } = req.body;
+  const { email, fullName, city, country, password } = req.body;
+  const defaultLoc = { type: "Point", coordinates: [ 13.4 , 52.6 ]}; 
+
   const user = new User({
     email,
-    fullName
+    fullName,
+    city,
+    country,
+    location: defaultLoc
   });
 
   User.register(user, password, err => {

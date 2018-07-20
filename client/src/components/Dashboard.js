@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Dashboard.css';
 
 // Custom Components 
 import PlayersNearMe from './PlayersNearMe';
@@ -10,17 +11,21 @@ class Home extends Component {
   render() {                
     return (
       <div className="Home">
-        <h1>Welcome Back</h1>
+        {/* <h3>DASHBOARD</h3> */}
 
-        <h3>My Consorts</h3>
+        <br/>
+
+        <h3 className="section-header">MY CONSORTS</h3>
         <MyConsorts />
         
-        <h3>My Events</h3>
+        <h3 className="section-header">MY EVENTS</h3>
         <MyEvents />
 
-        <h3>My Players</h3>
+        <h3 className="section-header">FAVORITE PLAYERS</h3>
         <PlayersNearMe />
-        <br /><br />
+
+  
+        <br/><br/>
 
  
       </div>

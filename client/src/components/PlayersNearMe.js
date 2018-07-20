@@ -84,6 +84,7 @@ class Players extends Component {
               <SimpleMediaCard 
                 fullName={p.fullName}
                 pictureUrl={p.pictureUrl}
+                email={p.email}
               />
 
             </div>)}

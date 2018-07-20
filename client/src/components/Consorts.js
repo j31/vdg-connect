@@ -1,16 +1,13 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import api from '../api';
 import './Consorts.css';
 
+// Custom
+import EmailButton from './EmailButton';
+
 // Component UI 
 import Avatar from '@material-ui/core/Avatar';
-// import classNames from 'classnames';
-// import { withStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
 
-// Custom Components
-// import ConsortDetail from './ConsortDetail';
 
 
 class Consorts extends Component {
@@ -35,7 +32,7 @@ class Consorts extends Component {
     return (
       <div className="Consorts">
       <h2>Join a Consort</h2>
-      <p className="form-message">Can't find a good match? &nbsp;  Create a new consort!</p>
+      {/* <p className="form-message">Can't find a good match? &nbsp;  Create a new consort!</p> */}
       
         <table className="consort-table">
           <tbody>
@@ -57,10 +54,21 @@ class Consorts extends Component {
                   )}
                 </td>
                 
+                <td>
+                {c.notes}
+                </td>
+
                 <td>  
-                  <Button size="small" color="primary" component={Link} to={'/consorts/' + c._id} >
+
+                   <EmailButton 
+                     size="small" 
+                    color="primary" 
+                    email={c._members[0].email} 
+                    subject={c.consortName} />
+
+                  {/* <Button size="small" color="primary" component={Link} to={'/consorts/' + c._id} >
                   DETAILS
-                  </Button>
+                  </Button> */}
                 </td>
             </tr>
          )}

@@ -1,0 +1,10 @@
+
+.Events {
+  justify-content: center;
+}
+
+.Events-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}

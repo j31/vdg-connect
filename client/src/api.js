@@ -55,6 +55,14 @@ export default {
       .then(res => res.data)
       .catch(errHandler);
   },
+
+  postFavorites(data) {
+    console.log("in api postfav")
+    return service
+      .post('users/favorites', data)
+      .then(res => res.data)
+      .catch(errHandler);
+  },
   
   getProfile() {
     return service

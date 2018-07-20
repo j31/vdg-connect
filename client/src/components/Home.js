@@ -21,64 +21,6 @@ class Home extends Component {
       <br/><br/>
         
     
-    
-
-      <Grid container spacing={24}>
-          <Grid item xs>
-          <i className="fas fa-hands-helping fa-2x"></i><br/><br/>
-
-     
-        <p className="section-text">Sign up to stay connected to the VdG community.</p>
-
-        <Button variant="contained" color="primary" component={Link} to="/signup">
-          Sign Up
-        </Button><br/><br/>
-
-        <p className="section-text">Already registered?</p>
-
-        <Button variant="outlined" color="primary" component={Link} to="/login">
-          Log In
-        </Button><br/><br/>
-
-          </Grid>
-
-          <Grid item xs>
-          <i className="fas fa-info fa-2x"></i><br/><br/>
-          <p className="section-text">Brooklyn poutine echo park marfa palo santo tofu snackwave drinking vinegar ugh pabst 3 wolf moon. Quinoa master cleanse la croix hell of. Dreamcatcher fingerstache hella health goth humblebrag scenester. Health goth stumptown aesthetic disrupt bicycle rights cronut squid brunch succulents lyft lo-fi forage letterpress you probably haven't heard of them.</p><br/><br/>
-          </Grid>
-
-        <Grid item xs>
-        <i className="fas fa-calendar-alt fa-2x"></i>
-        </Grid>
-      </Grid>
-
-      <Grid container spacing={16}>
-    
-        {/* <i className="fas fa-headphones fa-2x"></i><br/><br/><br/> */}
-  
-        <Grid item xs>
-          <i className="fab fa-spotify fa-2x"></i><br/><br/><br/>
-          <iframe src="https://open.spotify.com/embed?uri=spotify:user:andrewtlane:playlist:5Hes2UeE14GBiIKbdJ5Mpb" height="240" frameBorder="0" allowtransparency="true" allow="encrypted-media" title="Spotify embedded playlist" ></iframe>
-
-        </Grid>
-        <Grid item xs>
-        <i className="fab fa-youtube fa-2x"></i><br/><br/><br/>
-          <iframe src="https://www.youtube.com/embed/YvpU3UYtVmI?start=10" height="240" frameBorder="0" title="YouTube embedded player" allow="autoplay; encrypted-media" allowFullScreen></iframe><br/><br/>
-          {/* <iframe src="https://www.youtube.com/embed/IP0YrMKZhkM?start=10" frameBorder="0" allow="autoplay; 
-          encrypted-media" allowFullScreen></iframe><br/><br/>
-          <iframe src="https://www.youtube.com/embed/C4m1KHjp03M?start=10" frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe><br/><br/> */}
-        </Grid>
-        <Grid item xs>
-        <img src="../img/npr.jpg" alt="NPR Logo" className="npr-logo"/><br/><br/><br/>
-        <iframe src="https://www.npr.org/player/embed/157991138/158127329?start=25" height="240" frameBorder="0" scrolling="no" title="NPR embedded audio player"></iframe><br/><br/><br/><br/>
-        
-        </Grid>
-      </Grid>
-
-
-        <br /><br />
-
-   
 
 
   

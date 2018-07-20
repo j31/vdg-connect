@@ -1,13 +1,10 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+
 import api from '../api';
 import './MyConsorts.css';
 
 // Component UI 
 import Avatar from '@material-ui/core/Avatar';
-// import classNames from 'classnames';
-// import { withStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
 
 
 class Consorts extends Component {
@@ -21,10 +18,15 @@ class Consorts extends Component {
     api.getConsorts()
     .then(consorts => {
       
+    
+      let myConsorts = []
+      myConsorts.push(consorts[0])
+      myConsorts.push(consorts[2])
+
       this.setState({
-        consorts: consorts
+        consorts: myConsorts
       })
-      // console.log(consorts)
+
     })
     .catch(err => console.log(err))
   }
@@ -52,9 +54,11 @@ class Consorts extends Component {
           )}
           </td>
           <td>  
-            <Button size="small" color="primary" component={Link} to={'/consorts/' + c._id} >
+
+            {c.venue}
+            {/* <Button size="small" color="primary" component={Link} to={'/consorts/' + c._id} >
               DETAILS
-            </Button>
+            </Button> */}
           </td>
         </tr>
       )}

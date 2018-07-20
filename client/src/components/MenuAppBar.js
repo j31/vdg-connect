@@ -1,10 +1,10 @@
 import React from 'react';
-import { NavLink, Link, Switch, Route } from 'react-router-dom';
+import { Link, Switch, Route } from 'react-router-dom';
 import api from '../api';
 import './MenuAppBar.css';
 
 // Custom Components
-import Home from './Home';
+
 import Dashboard from './Dashboard';
 import Players from './Players';
 import Consorts from './Consorts';
@@ -91,7 +91,7 @@ class MenuAppBar extends React.Component {
   };
 
   componentDidMount() {
-    {api.isLoggedIn() && this.handleShrink()}
+    api.isLoggedIn() && this.handleShrink()
   }
 
 
@@ -99,7 +99,6 @@ class MenuAppBar extends React.Component {
     const { classes } = this.props;
     const { anchorEl } = this.state;
     const open = Boolean(anchorEl);
-
 
     return (
       <MuiThemeProvider theme={theme}>
@@ -168,12 +167,13 @@ class MenuAppBar extends React.Component {
             <ReactRotatingText 
               items={['Welcome to', 'Authentic', 'Quirky', 'Beautiful', 'Resurgant',
               'Friendly', 'Soul-touching', 'Viola da']} 
-              pause={3500}
+              pause={1000}
               cursor={false}
               />
               &nbsp;Gamba.<br/>
 
-              <Button variant="outlined" color="default" onClick={this.handleShrink}> CONTINUE </Button>
+
+              <Button variant="outlined" color="default" onClick={this.handleShrink} component={Link} to="/signup"> JOIN GAMBA </Button>
               </div>
          
 
@@ -184,7 +184,7 @@ class MenuAppBar extends React.Component {
         <Switch>
 
 
-          {!api.isLoggedIn() && <Route path="/" exact component={Home} />}
+          {!api.isLoggedIn() && <Route path="/" exact component={Signup} />}
           {api.isLoggedIn() && <Route path="/" exact component={Dashboard} />}
           <Route path="/players" component={Players} />
           

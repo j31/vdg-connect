@@ -7,6 +7,8 @@ const eventSchema = new mongoose.Schema({
     required: [true, 'The event name is required']
   },
 
+  eventType: String,
+  
   date: Date, 
 
   description: String,

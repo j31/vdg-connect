@@ -6,6 +6,8 @@ import './Players.css';
 
 // Material UI Components 
 import SimpleMediaCard from './SimpleMediaCard'
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Switch from '@material-ui/core/Switch';
 
 
 class Players extends Component {
@@ -14,34 +16,63 @@ class Players extends Component {
     this.state = {
       playersAll: [],
       playersShow: [],
-      searchText: ""
+      localPlayers: [],
+      searchText: "",
+      limitByLocation: false
     }
   }
   componentDidMount() {
     api.getPlayers()
-      .then(players => {
-        
-        this.setState({
-          playersAll: players,
-          playersShow: players
-        })
+    .then(players => {
+      
+      this.setState({
+        playersAll: players,
+        playersShow: players
       })
-      .catch(err => console.log(err))
+    })
+    .catch(err => console.log(err))
+
+    api.getLocalPlayers()
+    .then(localPlayers => {
+      // console.log ("local players ", players)
+      this.setState({
+        localPlayers: localPlayers
+      })
+
+    })
+    .catch(err => console.log(err))
   }
+
+
+  handleChange = name => event => {
+    this.setState({ [name]: event.target.checked });
+    
+    if (this.state.limitByLocation === false) {
+      this.setState({playersShow: this.state.localPlayers});
+    } else {
+      this.setState({playersShow: this.state.playersAll});
+    }
+
+  };
 
   handleInputChange(stateFieldName, event) {
     let newState = {}
     newState[stateFieldName] = event.target.value
-  
     this.setState(newState)
   }
 
   newSearch(event) {
     const searchString = event.target.value.toUpperCase()
 
+    var players = []
+    if (this.state.limitByLocation === true) {
+      players = this.state.localPlayers.slice()
+    } else {
+      players = this.state.playersAll.slice()
+    }
+    
     if (searchString !== "") {
-      const players = this.state.playersAll.slice()
- 
+      
       const filterList = players.filter( e => e.fullName
         .toUpperCase()
         .includes(searchString)
@@ -51,9 +82,12 @@ class Players extends Component {
       });
     } else {
       this.setState({
-        playersShow: this.state.playersAll
+        playersShow: players
       });
     }
+    console.log("all ", this.state.playersAll)
+    console.log("local ", this.state.localPlayers)
+    console.log("show ", this.state.playersShow)
   }
 
 
@@ -70,6 +104,19 @@ class Players extends Component {
           Search
           </Button><br/><br/> */}
 
+          &nbsp;&nbsp;&nbsp;&nbsp;
+        <FormControlLabel
+          control={
+            <Switch
+              checked={this.state.limitByLocation}
+              onChange={this.handleChange('limitByLocation')}
+              value="limitBy"
+              color="primary"
+            />
+          }
+          label="Limit to players in your area"
+        />
+       
         </form>
 
         
@@ -87,6 +134,8 @@ class Players extends Component {
               <SimpleMediaCard 
                 fullName={p.fullName}
                 pictureUrl={p.pictureUrl}
+                level={p.playerLevel}
+                email={p.email}
               />
 
             </div>)}

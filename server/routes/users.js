@@ -9,6 +9,7 @@ const uploadCloudinary = require('../configs/cloudinary');
 // Route to get all users
 router.get('/', (req, res, next) => {
   User.find()
+    .sort({ fullName: 1 })
     .then(users => {
       res.json(users)
     })
@@ -29,6 +30,7 @@ router.get('/local', (req, res, next) => {
         }
     }
  )
+  .sort({ fullName: 1 })
   .then(users => {
   res.json(users)
 })
@@ -38,6 +40,9 @@ router.get('/local', (req, res, next) => {
 router.get('/profile', passport.authenticate("jwt", config.jwtSession), (req, res, next) => {
   console.log("req.user ", req.user)
   User.findById(req.user._id)
+    .populate('favEvents')
+    .populate('favPlayers')
+    .populate('favConsorts')
     .then(user => {
       console.log(user)
       res.json(user)
@@ -68,6 +73,73 @@ router.post('/profile', passport.authenticate("jwt", config.jwtSession), uploadC
   .then(profile => {
     console.log ("updated player profile! ", playerInfo)
   })
+});
+
+
+
+
+router.post('/favorites', passport.authenticate("jwt", config.jwtSession), (req, res, next) => {
+
+  const id = req.user._id;
+
+  if (req.body.favEvent) {
+    const eventId = req.body.favEvent
+    User.findById(id)
+    .then(user => {
+      const newEvents = user.favEvents
+
+      // console.log ("newEvents ", newEvents)
+      // console.log ("eventId ", eventId)
+      // console.log ("indexOf ", newEvents.indexOf(eventId))
+
+      const i = newEvents.indexOf(eventId)
+
+      if ( i === -1 ) {
+        newEvents.push(eventId)
+      } else {
+        newEvents.splice(i, 1)
+      }
+        
+      const playerInfo = {
+        favEvents:  newEvents,
+      }
+      User.findByIdAndUpdate(id, playerInfo)
+      .then(user => {
+      })
+    })
+  }
+
+  if (req.body.favPlayer) {
+    const playerId = req.body.favPlayer
+    User.findById(id)
+    .then(user => {
+      const newPlayers = user.favPlayers
+      newPlayers.push(playerId)
+      const playerInfo = {
+        favPlayers:  newPlayers,
+      }
+      User.findByIdAndUpdate(id, playerInfo)
+      .then(user => {
+      })
+    })
+  }
+
+  if (req.body.favConsort) {
+    const eventId = req.body.favConsort
+    User.findById(id)
+    .then(user => {
+      const newConsorts = user.favConsorts
+      newConsorts.push(eventId)
+      const playerInfo = {
+        favConsorts:  newConsorts,
+      }
+      User.findByIdAndUpdate(id, playerInfo)
+      .then(user => {
+      })
+    })
+  }
+  
+
 });
 
 

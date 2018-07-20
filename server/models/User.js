@@ -16,7 +16,7 @@ const userSchema = new Schema({
   postalCode:  String,
   country:     String,
 
-  location: { type: { type: String }, coordinates: { type: [ Number ], default: [13.39, 2.55] }},
+  location: { type: { type: String }, coordinates: [ Number ] },
 
   playsTreble: Boolean,
   playsAlto:   Boolean,
@@ -25,8 +25,12 @@ const userSchema = new Schema({
   playerLevel:       String,
   
   playerNotes:  String,
+
+  favPlayers: [{type: mongoose.Schema.Types.ObjectId, ref:'User'}, {default:[]}],
+  favEvents: [{type: mongoose.Schema.Types.ObjectId, ref:'Event'},{default:[]}],
+  favConsorts: [{type: mongoose.Schema.Types.ObjectId, ref:'Consort'},{default:[]}],
   
-  pictureUrl: String,
+  pictureUrl: {type: String, default: "http://res.cloudinary.com/cldpix/image/upload/v1531921197/my-images/yafjjhk0hzyxnvmjodv4.jpg"}
 
 });
 

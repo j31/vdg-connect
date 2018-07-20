@@ -1,5 +1,7 @@
 import React from 'react';
 
+// Custom
+import EmailButton from './EmailButton';
 
 // Material UI Components 
 import PropTypes from 'prop-types';
@@ -8,8 +10,11 @@ import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
-import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+
+
+
+
 
 const styles = {
   card: {
@@ -20,6 +25,8 @@ const styles = {
     paddingTop: '56.25%', // 16:9
   },
 };
+
+
 
 function SimpleMediaCard(props) {
   const { classes } = props;
@@ -37,16 +44,27 @@ function SimpleMediaCard(props) {
             {props.fullName}
           </Typography>
           <Typography component="p">
-           
+           {props.level}
           </Typography>
         </CardContent>
         <CardActions>
-          <Button size="small" color="primary">
-            CONTACT
-          </Button>
-          <Button size="small" color="primary">
+
+        {/* <IconButton aria-label="Add to favorites">
+            +
+        </IconButton> */}
+
+    
+        <EmailButton 
+          size="small" 
+          color="primary" 
+          email={props.email}
+          subject="Hi from Gamba!"
+           />
+       
+
+          {/* <Button size="small" color="primary">
             DETAILS
-          </Button>
+          </Button> */}
         </CardActions>
       </Card>
     </div>

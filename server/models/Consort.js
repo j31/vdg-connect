@@ -7,7 +7,7 @@ const consortSchema = new Schema({
 
   _members: [{type: mongoose.Schema.Types.ObjectId, ref:'User'}],
   
-  
+
   venue: String,
   address1:    String,
   address2:    String,

@@ -7,13 +7,15 @@ import './ConsortDetail.css';
 // import classNames from 'classnames';
 // import { withStyles } from '@material-ui/core/styles';
 // import Button from '@material-ui/core/Button';
+import Avatar from '@material-ui/core/Avatar';
 
 
 class ConsortDetail extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      consort: ""
+      consort: "",
+      members: []
     }
   }
 
@@ -23,9 +25,10 @@ class ConsortDetail extends Component {
     .then(result => {
       console.log("result ", result)
       this.setState({
-        consort: result
+        consort: result,
+        members: result._members
       })
-      
+      console.log("members ", this.state.members)
     })
     .catch(err => console.log(err))
   }
@@ -35,9 +38,30 @@ class ConsortDetail extends Component {
   render() {                
     return (
       <div className="ConsortDetail">
-      <h5>Hi, you're on the consort detail page but it's not formatted yet.</h5>
+      <h2>{this.state.consort.consortName}</h2>
     
-      <p>{this.state.consort.consortName}</p>
+      {this.state.members.map((m, i) =>
+            <div key={i}>
+            <Avatar
+            alt={m.fullName}
+            src={m.pictureUrl}
+            className="avatars" />
+            </div>)}
+
+
+      <p>{this.state.consort.venue}</p>
+      <p>{this.state.consort.address1}</p>
+      <p>{this.state.consort.address2}</p>
+      <p>{this.state.consort.city},&nbsp;{this.state.consort.postalCode}
+        {/* {this.state.consort.stateCounty} */}
+      </p>
+      <p>{this.state.consort.country}</p>
+      {/* <p>{this.state.consort.location}</p> */}
+      <p>{this.state.consort.isProfessional}</p>
+      <p>{this.state.consort.notes}</p>
+      <p>{this.state.consort.pictureUrl}</p>
+    
+      <p></p>
       </div>
     );
   }

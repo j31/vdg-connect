@@ -12,6 +12,8 @@ class Signup extends Component {
     this.state = {
       email: "",
       fullName: "",
+      city: "",
+      country: "",
       password: "",
     }
   }
@@ -27,8 +29,11 @@ class Signup extends Component {
     let data = {
       email: this.state.email,
       fullName: this.state.fullName,
+      city: this.state.city,
+      country: this.state.country,
       password: this.state.password,
     }
+    
     api.signup(data)
       .then(result => {
         console.log('SUCCESS!')
@@ -43,15 +48,20 @@ class Signup extends Component {
     return (
       <div className="Signup">
         <br/>
-        <h1>Join the VdG Community!</h1>
+        <h1>Join the Gamba Community!</h1>
         <p className="form-message">Your account will always be free.  We respect your privacy.</p>
         <form>
 
+          <input placeholder=" name" className="input-text" type="text" value={this.state.fullName} onChange={(e) => {this.handleInputChange("fullName", e)}} /> <br/>
 
           <input placeholder=" email" className="input-text" type="text" value={this.state.email} onChange={(e) => {this.handleInputChange("email", e)}} /> <br/>
-          <input placeholder=" name" className="input-text" type="text" value={this.state.fullName} onChange={(e) => {this.handleInputChange("fullName", e)}} /> <br/>
+
           <input placeholder=" password" className="input-text" type="password" value={this.state.password} onChange={(e) => {this.handleInputChange("password", e)}}  /> <br/>
-          {/* <button onClick={(e) => this.handleClick(e)}>Signup</button> */}
+      
+          <input placeholder=" city" className="input-text" type="text" value={this.state.city} onChange={(e) => {this.handleInputChange("city", e)}} /> <br/>
+
+          <input placeholder=" country" className="input-text" type="text" value={this.state.country} onChange={(e) => {this.handleInputChange("country", e)}} /> <br/>
+
           <Button variant="contained" color="primary" onClick={(e) => this.handleClick(e)}>
           Sign up
           </Button><br/><br/>
